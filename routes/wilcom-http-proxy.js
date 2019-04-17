@@ -1,7 +1,6 @@
 const httpProxy = require('http-proxy');
 let proxy = httpProxy.createProxyServer();
-
-const config = require('config')
+const config = require('config');
 
 proxy.on('proxyReq', function (proxyReq, req, res) {
     if (req.body) {

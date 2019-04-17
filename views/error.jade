@@ -4,4 +4,6 @@ html
     title 井星代理
   body
     block content
-      h1 欢迎访问井星代理服务
+h1= message
+h2= error.status
+pre #{error.stack}

@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -14,19 +13,22 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-// --------------------------------------- ------------------ --------------------------------
+
+// --------------------------------------- 静态文件托管路径 start--------------------------------
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/sbc')));
+app.use(express.static(path.join(__dirname, 'public/vue-mgr')));
+
+// --------------------------------------- 静态文件托管路径 end --------------------------------
+
 
 var wilcom_routes = require('./routes/wilcom-routes');
 app.use('/', wilcom_routes);
-
-// --------------------------------------- ----------------- --------------------------------
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

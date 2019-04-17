@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const config = require('config');
-
+let wilcomproxy = require('./wilcom-http-proxy');
 
 /**
  *************************** 配置相应的路径 start *****************************
@@ -14,11 +14,11 @@ const config = require('config');
  */
 
 router.use('/security', function (req, res) {
-  routes(req, res, config.security, req.baseUrl);
+  wilcomproxy(req, res, config.security, req.baseUrl);
 })
 
 router.use('/apollo', function (req, res) {
-  routes(req, res, config.apollo);
+  wilcomproxy(req, res, config.apollo);
 })
 
 
