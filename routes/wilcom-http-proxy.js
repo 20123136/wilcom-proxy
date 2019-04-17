@@ -1,13 +1,11 @@
 const httpProxy = require('http-proxy');
 let proxy = httpProxy.createProxyServer();
-const config = require('config');
 
 proxy.on('proxyReq', function (proxyReq, req, res) {
     if (req.body) {
         let reqBody = JSON.stringify(req.body);
         console.log("--------- req from client agent --------------", reqBody);
         proxyReq.setHeader('Content-Length', Buffer.byteLength(reqBody, 'utf8'));
-        proxyReq.setHeader('Authorization', config.apollo.token);
         proxyReq.setHeader('Content-Type', 'application/json;charset=UTF-8');
         proxyReq.write(reqBody);
         proxyReq.end();

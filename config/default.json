@@ -9,14 +9,8 @@
     "port": 8089
   },
 
-  /* https://github.com/ctripcorp/apollo/wiki/Apollo%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0 */
-  "apollo": {
-    "host": "172.16.2.212",
-    "port": 8070,
-    "appId": "001",
-    "token": "d08490516345e99382d8d2551b4d55a7cef30b54",
-    "sso_userid": "apollo",
-    "prefix": "TEST1."
+  "report": {
+    "host": "172.16.2.229",
+    "port": 8136
   }
-
 }

@@ -19,16 +19,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
+
+
 // --------------------------------------- 静态文件托管路径 start--------------------------------
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(express.static(path.join(__dirname, 'public/vue-mgr')));
-
 // --------------------------------------- 静态文件托管路径 end --------------------------------
 
 
 var wilcom_routes = require('./routes/wilcom-routes');
 app.use('/', wilcom_routes);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

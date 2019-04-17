@@ -16,10 +16,19 @@ let wilcomproxy = require('./wilcom-http-proxy');
 router.use('/security', function (req, res) {
   wilcomproxy(req, res, config.security, req.baseUrl);
 })
+router.use('/report', function (req, res) {
+  wilcomproxy(req, res, config.report, req.baseUrl);
+})
+
+/*router.use('/passive-recorder', function (req, res) {
+  wilcomproxy(req, res, config.passiveRecorder, req.baseUrl);
+})*/
 
 router.use('/apollo', function (req, res) {
   wilcomproxy(req, res, config.apollo);
 })
+
+
 
 
 /**

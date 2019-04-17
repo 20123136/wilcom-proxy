@@ -26,6 +26,9 @@
 <h1>
     欢迎访问井星代理服务
 </h1>
+<input type="file" id="fileImport">
+<button onclick="upload()">上传</button>
+<button onclick="download()">下载</button>
 
 <footer>
     &copy2019 <a href="http://www.wilcom.com.cn/" type="_blank">上海井星信息科技有限公司</a>
@@ -34,5 +37,46 @@
 
 
 
+
 </body>
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery.json.min.js"></script>
+<script type="text/javascript">
+    function download() {
+        window.location = "/passive-recorder/batchDownload?station=&stationIp=&department=&isRecord=&stationType=&sort=station,desc";
+        /*$.ajax({
+            type: "get",
+            url: "/passive-recorder/batchDownload?station=&stationIp=&department=&isRecord=&stationType=&sort=station,desc",
+            timeout: 5000,
+            success: function (response, status) {
+                console.log(response);
+            },
+            error: function (err) {
+                console.log(err);
+            },
+        });*/
+    }
+
+    function upload() {
+        var file = $("#fileImport")[0].files[0];
+        var formData = new FormData();
+        formData.append("file", file);
+        $.ajax({
+            url: "/passive-recorder/uploadLicense",
+            type: "post",
+            data: formData,
+            dataType : "json",
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if(response.returnCode === 0){
+                    alert(1)
+                }else{
+                    alert(response.returnMsg)
+                }
+            },
+        });
+    }
+</script>
+
 </html>
