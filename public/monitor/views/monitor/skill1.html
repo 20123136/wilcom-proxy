@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>技能组监控</title>
+		
+		<link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+		<link href="../../css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	
+		<link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	
+		<link href="../../css/style-metro.css" rel="stylesheet" type="text/css"/>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+	
+		<link href="../../css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	
+		<link href="../../css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+	
+		<link href="../../css/uniform.default.css" rel="stylesheet" type="text/css"/>
+		
+		<link rel="stylesheet" href="../../css/DT_bootstrap.css" />
+		
+		<script src="../../js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	
+		<script src="../../js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	
+		<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+		
+		<script src="../../js/jquery.flot.js" type="text/javascript"></script>
+	
+		<script src="../../js/jquery.flot.resize.js" type="text/javascript"></script>
+		
+		<script src="../../js/jquery.easy-pie-chart.js" type="text/javascript"></script>
+	
+		<script src="../../js/jquery.sparkline.min.js" type="text/javascript"></script>
+		
+		<script src="../../js/monitor/skill.js" type="text/javascript"></script>
+		
+		<script src="../../js/app.js" type="text/javascript"></script>
+		
+		<script>
+	
+			jQuery(document).ready(function() {    
+	
+			   App.init(); // initlayout and core plugins
+	
+			});
+	
+		</script>
+		
+	</head>
+	<body>
+		
+		<!-- BEGIN CONTAINER -->
+	
+		<div class="page-container">
+	
+			<!-- BEGIN SIDEBAR -->
+	
+			<div class="page-sidebar nav-collapse collapse">
+	
+				<!-- BEGIN SIDEBAR MENU -->        
+	
+				<ul class="page-sidebar-menu">
+	
+					<li>
+	
+						<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+	
+						<div class="sidebar-toggler hidden-phone"></div>
+	
+						<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+	
+					</li>
+	
+					<li>
+						<a class="brand" href="index.html">
+	
+							<img src="../../image/wilcomlogo.png" alt="logo"/>
+		
+						</a>
+					</li>
+	
+					<li class="start active ">
+	
+						<a href="../../index.html">
+	
+							<i class="icon-eye-open"></i> 
+		
+							<span class="title">实时监控</span>
+		
+							<span class="arrow "></span>
+	
+						</a>
+						
+						<ul class="sub-menu">
+	
+							<li >
+	
+								<a href="../../views/monitor/skill.html">
+	
+								技能组监控</a>
+	
+							</li>
+							
+							<li >
+	
+								<a href="../../views/monitor/agentDetail.html">
+	
+								坐席明细监控</a>
+	
+							</li>
+							
+							<li >
+	
+								<a href="../../views/monitor/activeTotal.html">
+	
+								活动统计监控</a>
+	
+							</li>
+							
+							<li >
+	
+								<a href="../../views/monitor/activeDetail.html">
+	
+								活动明细监控</a>
+	
+							</li>
+	
+						</ul>
+	
+					</li>
+					
+					<li class="">
+
+						<a href="javascript:;">
+	
+						<i class="icon-cogs"></i> 
+	
+						<span class="title">监控配置</span>
+	
+						<span class="selected"></span>
+	
+						</a>
+	
+					</li>
+					
+					<li>
+
+						<a class="active" href="javascript:;">
+			
+						<i class="icon-bar-chart"></i> 
+			
+						<span class="title">自动外呼报表</span>
+			
+						<span class="arrow "></span>
+			
+						</a>
+						
+						<ul class="sub-menu">
+	
+							<li >
+	
+								<a href="../../views/report/activeTotalReport.html">
+	
+								活动统计报表</a>
+	
+							</li>
+							
+							<li >
+	
+								<a href="../../views/report/activeDetailReport.html">
+	
+								活动明细报表</a>
+	
+							</li>
+							
+							<li >
+	
+								<a href="../../views/report/activeResultTotal.html">
+	
+								活动结果统计报表</a>
+	
+							</li>
+							
+							<li >
+	
+								<a href="../../views/report/agentTotal.html">
+	
+								坐席活动统计报表</a>
+	
+							</li>
+							
+							<li>
+			
+								<a href="javascript:;">
+									
+								<i class="icon-bar-chart"></i>
+			
+								自动外呼流程报表
+			
+								<span class="arrow"></span>
+			
+								</a>
+			
+								<ul class="sub-menu">
+			
+									<li>
+										
+										<a href="#">
+											
+											当期账单外拨报表
+											
+											<span class="arrow"></span>
+											
+										</a>
+										
+										<ul class="sub-menu">
+
+											<li>
+												
+												<a href="../../views/report/bill/billDetail.html">
+												 
+												 	明细报表
+												 	
+												</a>
+											
+											</li>
+	
+											<li>
+												
+												<a href="../../views/report/bill/billTotal.html">
+												 
+												 	统计报表
+												 	
+												</a>
+											
+											</li>
+	
+										</ul>
+										
+									</li>
+			
+									<li>
+										
+										<a href="#">
+											
+											风险侦测外拨报表
+											
+											<span class="arrow"></span>
+										
+										</a>
+										
+										<ul class="sub-menu">
+
+											<li>
+												
+												<a href="../../views/report/risk/riskDetail.html">
+												 
+												 	明细报表
+												 	
+												</a>
+											
+											</li>
+	
+											<li>
+												
+												<a href="../../views/report/risk/riskTotal.html">
+												 
+												 	统计报表
+												 	
+												</a>
+											
+											</li>
+	
+										</ul>
+									
+									</li>
+			
+									<li>
+										
+										<a href="#">
+											
+											密码锁定自动触发智能外拨报表
+											
+											<span class="arrow"></span>
+										
+										</a>
+										
+										<ul class="sub-menu">
+
+											<li>
+												
+												<a href="../../views/report/unlock/codelockupService.html">
+												 
+												 	外拨触发服务统计报表
+												 	
+												</a>
+											
+											</li>
+	
+											<li>
+												
+												<a href="../../views/report/unlock/unlockFlow.html">
+												 
+												 	密码解锁流程统计报表
+												 	
+												</a>
+											
+											</li>
+											
+											<li>
+												
+												<a href="../../views/report/unlock/outDailing.html">
+												 
+												 	密码解锁外拨活动统计报表
+												 	
+												</a>
+											
+											</li>
+	
+										</ul>
+									
+									</li>
+			
+								</ul>
+			
+							</li>
+	
+						</ul>
+			
+					</li>
+				
+				</ul>
+				
+				<!-- END SIDEBAR MENU -->
+				
+			</div>
+			
+			<!-- END SIDEBAR -->
+			
+			<!-- BEGIN PAGE -->
+
+			<div class="page-content">
+	
+				<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+	
+				<div id="portlet-config" class="modal hide">
+	
+					<div class="modal-header">
+	
+						<button data-dismiss="modal" class="close" type="button"></button>
+	
+						<h3>Widget Settings</h3>
+	
+					</div>
+	
+					<div class="modal-body">
+	
+						Widget settings form goes here
+	
+					</div>
+	
+				</div>
+	
+				<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+		
+				<!-- BEGIN PAGE CONTAINER-->
+			
+				<div class="container-fluid">
+		
+					<!-- BEGIN PAGE HEADER-->
+		
+					<div class="row-fluid">
+		
+						<div class="span12">
+		
+							<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+		
+							<h3 class="page-title">
+		
+								技能组监控 <small>技能组监控</small>
+		
+							</h3>
+		
+							<ul class="breadcrumb">
+		
+								<li>
+		
+									<i class="icon-home"></i>
+		
+									<a href="../../index.html">Home</a> 
+		
+									<i class="icon-angle-right"></i>
+		
+								</li>
+								
+								<li>
+		
+									<i class="icon-eye-open"></i>
+		
+									<a href="index.html">实时监控</a> 
+		
+									<i class="icon-angle-right"></i>
+		
+								</li>
+		
+								<li><a href="#">技能组监控</a></li>
+		
+							</ul>
+		
+							<!-- END PAGE TITLE & BREADCRUMB-->
+		
+						</div>
+		
+					</div>
+					
+					<!-- END PAGE HEADER-->
+			
+					<div id="sill">
+		
+						<!-- BEGIN PAGE CONTENT-->          
+		
+						<div class="row-fluid">
+		
+							<div class="span12">
+		
+								<!-- BEGIN SAMPLE TABLE PORTLET-->
+		
+								<div class="portlet box green">
+		
+									<div class="portlet-title">
+		
+										<div class="caption"><i class="icon-cogs"></i>技能组监控</div>
+		
+										<div class="tools">
+		
+											<a href="javascript:;" class="collapse"></a>
+		
+											<a href="#portlet-config" data-toggle="modal" class="config"></a>
+		
+											<a href="javascript:;" class="reload"></a>
+		
+											<a href="javascript:;" class="remove"></a>
+		
+										</div>
+		
+									</div>
+		
+									<div class="portlet-body flip-scroll">
+		
+										<table class="table-bordered table-striped table-condensed flip-content">
+		
+											<thead class="flip-content">
+		
+												<tr>
+		
+													<th>技能组名称</th>
+		
+													<th class="numeric">登录坐席数</th>
+													
+													<th class="numeric">空闲坐席数</th>
+		
+													<th class="numeric">排队数</th>
+		
+													<th class="numeric">应答数</th>
+		
+													<th class="numeric">放弃数</th>
+		
+													<th class="numeric">接通率</th>
+		
+													<th class="numeric">平均振铃时长</th>
+		
+													<th class="numeric">平均通话时长</th>
+													
+													<th class="numeric">平均排队时长</th>
+		
+												</tr>
+		
+											</thead>
+		
+											<tbody>
+		
+												<tr>
+		
+													<td>技能1</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能2</td>
+		
+													<td class="numeric">96</td>
+		
+													<td class="numeric">25</td>
+		
+													<td class="numeric">56</td>
+		
+													<td class="numeric">36</td>
+		
+													<td class="numeric">13</td>
+		
+													<td class="numeric">69%</td>
+		
+													<td class="numeric">11</td>
+													
+													<td class="numeric">69</td>
+													
+													<td class="numeric">36</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能1</td>
+		
+													<td class="numeric">97</td>
+		
+													<td class="numeric">25</td>
+		
+													<td class="numeric">57</td>
+		
+													<td class="numeric">37</td>
+		
+													<td class="numeric">15</td>
+		
+													<td class="numeric">70%</td>
+		
+													<td class="numeric">12</td>
+													
+													<td class="numeric">70</td>
+													
+													<td class="numeric">37</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能3</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能4</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能5</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能6</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能7</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能8</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能1</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+												<tr>
+		
+													<td>技能1</td>
+		
+													<td class="numeric">95</td>
+		
+													<td class="numeric">23</td>
+		
+													<td class="numeric">55</td>
+		
+													<td class="numeric">35</td>
+		
+													<td class="numeric">12</td>
+		
+													<td class="numeric">68%</td>
+		
+													<td class="numeric">10</td>
+													
+													<td class="numeric">68</td>
+													
+													<td class="numeric">35</td>
+		
+												</tr>
+		
+											</tbody>
+		
+										</table>
+		
+									</div>
+		
+								</div>
+		
+								<!-- END SAMPLE TABLE PORTLET-->
+		
+							</div>
+		
+						</div>
+		
+						<!-- END PAGE CONTENT-->
+					
+					</div>	
+					
+				</div>	
+				
+				<!-- END CONTAINER -->
+				
+			</div>	
+		
+		</div>
+		
+		<!-- BEGIN FOOTER -->
+	
+		<div class="footer">
+	
+			<div class="footer-inner">
+	
+				2017 &copy; monitor by wilcom.hyw.
+	
+			</div>
+	
+			<div class="footer-tools">
+	
+				<span class="go-top">
+	
+				<i class="icon-angle-up"></i>
+	
+				</span>
+	
+			</div>
+	
+		</div>
+	
+		<!-- END FOOTER -->
+		
+		
+	</body>
+</html>

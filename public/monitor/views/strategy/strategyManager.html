@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>策略管理</title>
+		
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../plugins/layui/css/global.css" media="all">
+		<link rel="stylesheet" type="text/css" href="../plugins/font/font-awesome.min.css">
+		<link rel="stylesheet" href="../plugins/layui/css/table.css" />
+		
+		<script type="text/javascript" src="../plugins/layui/layui.js"></script>
+		<!--<script type="text/javascript" src="../plugins/layui/js/paging.js"></script>-->
+		<script type="text/javascript" src="../js/strategy/strategyManager.js"></script>
+		
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){ }}
+			<tr>
+				<td><input type="checkbox" lay-skin="primary"></td>
+				<td>{{ item.name }}</td>
+				<td>{{ item.age }}</td>
+				<td>{{ item.createtime }}</td>
+				<td>
+					<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+					<a href="javascript:;" data-name="{{ item.name }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
+					<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+				</td>
+			</tr>
+			{{# }); }}
+		</script>
+		
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+
+			<!-- BEGIN PAGE HEADER-->
+
+			<div class="row-fluid">
+
+				<div class="span12">
+					
+					<!-- BEGIN STYLE CUSTOMIZER -->
+
+					<div class="color-panel hidden-phone">
+
+						<div class="color-mode-icons icon-color"></div>
+
+						<div class="color-mode-icons icon-color-close"></div>
+
+						<div class="color-mode">
+
+							<p>THEME COLOR</p>
+
+							<ul class="inline">
+
+								<li class="color-black current color-default" data-style="default"></li>
+
+								<li class="color-blue" data-style="blue"></li>
+
+								<li class="color-brown" data-style="brown"></li>
+
+								<li class="color-purple" data-style="purple"></li>
+
+								<li class="color-grey" data-style="grey"></li>
+
+								<li class="color-white color-light" data-style="light"></li>
+
+							</ul>
+
+							<label>
+
+								<span>Layout</span>
+
+								<select class="layout-option m-wrap small">
+
+									<option value="fluid" selected>Fluid</option>
+
+									<option value="boxed">Boxed</option>
+
+								</select>
+
+							</label>
+
+							<label>
+
+								<span>Header</span>
+
+								<select class="header-option m-wrap small">
+
+									<option value="fixed" selected>Fixed</option>
+
+									<option value="default">Default</option>
+
+								</select>
+
+							</label>
+
+							<label>
+
+								<span>Sidebar</span>
+
+								<select class="sidebar-option m-wrap small">
+
+									<option value="fixed">Fixed</option>
+
+									<option value="default" selected>Default</option>
+
+								</select>
+
+							</label>
+
+							<label>
+
+								<span>Footer</span>
+
+								<select class="footer-option m-wrap small">
+
+									<option value="fixed">Fixed</option>
+
+									<option value="default" selected>Default</option>
+
+								</select>
+
+							</label>
+
+						</div>
+
+					</div>
+
+					<!-- END BEGIN STYLE CUSTOMIZER --> 
+
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+					<h3 class="page-title">
+
+						活动明细报表 <small>活动明细报表</small>
+
+					</h3>
+
+					<ul class="breadcrumb">
+
+						<li>
+
+							<i class="icon-home"></i>
+
+							<a href="../index.html">Home</a> 
+
+							<i class="icon-angle-right"></i>
+
+						</li>
+						
+						<li>
+
+							<i class="icon-bar-chart"></i>
+
+							自动外呼报表 
+
+							<i class="icon-angle-right"></i>
+
+						</li>
+
+						<li>
+							
+							<i class="icon-bar-chart"></i>
+							
+							活动明细报表
+						
+						</li>
+
+					</ul>
+
+					<!-- END PAGE TITLE & BREADCRUMB-->
+
+				</div>
+
+			</div>
+			
+			<!-- END PAGE HEADER-->
+	
+			<div id="strategyManager">
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<div class="admin-main">
+
+							<blockquote class="layui-elem-quote">
+								<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+									<i class="layui-icon">&#xe608;</i> 添加信息
+								</a>
+								<a href="#" class="layui-btn layui-btn-small" id="import">
+									<i class="layui-icon">&#xe608;</i> 导入信息
+								</a>
+								<a href="#" class="layui-btn layui-btn-small">
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
+								</a>
+								<a href="#" class="layui-btn layui-btn-small" id="getSelected">
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i> 获取全选信息
+								</a>
+								<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+									<i class="layui-icon">&#xe615;</i> 搜索
+								</a>
+							</blockquote>
+							<fieldset class="layui-elem-field">
+								<legend>数据列表</legend>
+								<div class="layui-field-box layui-form">
+									<table class="layui-table admin-table">
+										<thead>
+											<tr>
+												<th style="width: 30px;">
+													<input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>
+												<th>姓名</th>
+												<th>年龄</th>
+												<th>创建时间</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody id="content">
+										</tbody>
+									</table>
+								</div>
+							</fieldset>
+							<div class="admin-table-page">
+								<div id="paged" class="page">
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+
+			</div>
+			
+		</div>	
+		
+	</body>
+</html>

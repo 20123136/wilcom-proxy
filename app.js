@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 // --------------------------------------- 静态文件托管路径 start--------------------------------
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public/sbc')));
+
 app.use(express.static(path.join(__dirname, 'public/vue-mgr')));
 
 // --------------------------------------- 静态文件托管路径 end --------------------------------
