@@ -1,14 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
-let wilcomproxy = require('http-proxy');
-var stripJsonComments  = require('strip-json-comments');//扒光json中的注解
-var fs = require('fs'); // file system
-var config = JSON.parse(stripJsonComments(fs.readFileSync('config/default.json').toString()));
-
-
-
-
+const config = require('config');
 
 
 /**

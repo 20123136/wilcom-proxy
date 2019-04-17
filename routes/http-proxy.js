@@ -1,10 +1,7 @@
 const httpProxy = require('http-proxy');
 let proxy = httpProxy.createProxyServer();
 
-var stripJsonComments  = require('strip-json-comments');//扒光json中的注解
-var fs = require('fs'); // file system
-var config = JSON.parse(stripJsonComments(fs.readFileSync('config/default.json').toString()));
-
+const config = require('config')
 
 proxy.on('proxyReq', function (proxyReq, req, res) {
     if (req.body) {

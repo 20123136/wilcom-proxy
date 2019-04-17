@@ -13,10 +13,7 @@ var http = require('http');
  */
 
 /* var port = normalizePort(process.env.PORT || '3000'); */
-var stripJsonComments  = require('strip-json-comments');//扒光json中的注解
-var fs = require('fs'); // file system
-var config = JSON.parse(stripJsonComments(fs.readFileSync('./config/default.json').toString()));
-const port = config.node.port;
+const port = require('config').get('node.port');
 app.set('port', port);
 
 /**
